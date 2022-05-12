@@ -56,27 +56,32 @@ typedef struct StateOneEnterParameter
     f_pointer_void_void Loop;
     f_pointer_void_void Output;
 } StateOneEnterParameter;
+
+
+
+typedef struct States
+{
+    StateNoParameters State_A;
+    StateOneEnterParameter State_B;
+}States;
+
  
-void* states[2];
+
 
 
 int main()
 {
     
+
+    States myStates = 
+    {
+        {State_A_Enter , State_A_Loop, State_A_Output},
+        {State_B_Enter , State_B_Loop, State_B_Output}
+    };
     
-    StateNoParameters  State_A = {State_A_Enter , State_A_Loop, State_A_Output};
-    //State_A.Enter();
     
     
-    
-    void * curentState = &State_A;
-    
-    //StateOneEnterParameter  State_B = {State_B_Enter , State_B_Loop, State_B_Output};
-    //State_B.Enter(5);
-    
-    //*(*StateNoParameters) states[0].Enter();
-    
-    (*(StateNoParameters*)curentState).Enter();
+    myStates.State_A.Enter();
 
     return 0;
 }
