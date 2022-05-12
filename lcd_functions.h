@@ -5,13 +5,15 @@ void LCD_Write4bits(unsigned char data, unsigned char control);
 
 void LCD4bits_Data(unsigned char data);
 
-void LCD_WriteString(char * str);
-
 void LCD4bits_Cmd(unsigned char command);
 
 void LCD4bits_Init(void);
 
+void LCD_WriteString(char * str);
 
+void Cursor_Left(int n);
+
+void Cursor_Right(int n);
 
 
 	
