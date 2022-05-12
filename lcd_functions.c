@@ -1,15 +1,19 @@
-//Documentation for the LCD Driver V1.0 and its Functions.
+//Documentation for the LCD Driver V2.0 and its Functions.
 //---------------------------------------------------------
 // LCD4bits_Data() ----> Prints a Character on the LCD Screen.
 // LCD4bits_Cmd()  ----> Excecute a Command on the LCD from the Command Table
 // LCD4bits_Init() ----> Initializes the LCD. (Must be executed only once.)
 // LCD_Wirite4bits() --> Send 4 bits of the data (This Function is intended to be used internally and SHOULD NOT be used inside the program)
-// LCD_WriteString() --> Print a string on the LCD.
+// LCD_WriteString() --> Print a string on the LCD. #New#
+// Cursor_Left(n) -----> Shift cursor to the left by n characters.  #New#
+// Cursor_Right(n) ----> Shift cursor to the right by n characters. #New#
 //
 // Note : Data are connected through ports PB4->PB7
 //
 #define RS 0x01				 	//RS -> PB0 (0x01)
 #define EN 0x04  		 	 	//EN -> PB2 (0x04)
+#define Move_Cursor_Left 0x10
+#define Move_Cursor_Right 0x14
 #define lcd_clear 0x01
 #include "tm4c123gh6pm.h"
 #include "delays.h"
@@ -63,6 +67,26 @@ void LCD_WriteString(char* str)
 	{
 		LCD4bits_Data(*(str+i)); //Print each character of the string on the LCD
 		i++;                        
+	}
+}
+
+void Cursor_Left(int n)
+{
+	int CurrentPosition;
+
+	for(CurrentPosition=0; CurrentPosition<n; j++)
+	{
+		LCD4bits_Cmd(Move_Cursor_Left);
+	}
+}
+
+void Cursor_Right(int n)
+{
+	int CurrentPosition;
+
+	for(CurrentPosition=0;CurrentPosition<n;j++)
+	{
+		LCD4bits_Cmd(Move_Cursor_Right);
 	}
 }
 
