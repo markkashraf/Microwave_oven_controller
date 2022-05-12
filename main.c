@@ -37,7 +37,7 @@ int main()
     
     
     StateStruct  State_A = {State_A_Enter , State_A_Loop, State_A_Output};
-    (*State_A.Enter)();
+    State_A.Enter();
     
     
 
