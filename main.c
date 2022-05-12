@@ -9,13 +9,13 @@ void State_A_Enter()
 
 void State_A_Loop()
 {
-     printf("State_B_looping\n");
+     printf("State_A_looping\n");
 }
 
 
 void State_A_Output()
 {
-     printf("State_B_output\n");
+     printf("State_A_output\n");
 }
 
 typedef void (*f_pointer_void_void)(void);
