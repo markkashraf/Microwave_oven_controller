@@ -80,7 +80,13 @@ int main()
     };
     
     
+    f_pointer_void_void loop[] ={ 
+        myStates.State_A.Loop,
+         myStates.State_B.Loop,
+        
+    };
     
+    loop[1]();
     myStates.State_A.Enter();
 
     return 0;
