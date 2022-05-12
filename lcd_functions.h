@@ -9,11 +9,13 @@ void LCD4bits_Cmd(unsigned char command);
 
 void LCD4bits_Init(void);
 
-void LCD_WriteString(char * str);
+void LCD_WriteString(char* str);
 
 void Cursor_Left(int n);
 
 void Cursor_Right(int n);
+
+
 
 
 	
