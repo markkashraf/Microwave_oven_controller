@@ -4,7 +4,8 @@
 // LCD4bits_Cmd()  ----> Excecute a Command on the LCD from the Command Table
 // LCD4bits_Init() ----> Initializes the LCD. (Must be executed only once.)
 // LCD_Wirite4bits() --> Send 4 bits of the data (This Function is intended to be used internally and SHOULD NOT be used inside the program)
-//	
+// LCD_WriteString() --> Print a string on the LCD.
+//
 // Note : Data are connected through ports PB4->PB7
 //
 #define RS 0x01				 	//RS -> PB0 (0x01)
@@ -31,15 +32,6 @@ void LCD4bits_Data(unsigned char data)
 	delay_micro(40);		    //Delay for LCD 
 }
 
-void LCD_WriteString(char * str)
-{  
-	volatile int i = 0;          	//i must be pulled from memory 
-	while(*(str+i) != '\0')       	//Continue until you find the Null-Terminating Character.
-	{
-		LCD4bits_Data(*(str+i)); //Print each character of the string on the LCD
-		i++;                        
-	}
-}
 
 void LCD4bits_Cmd(unsigned char command)
 {
@@ -56,13 +48,27 @@ void LCD4bits_Init(void)
 {
 	SYSCTL_RCGCGPIO_R |= 0x02;    //enable clock for PORT B
 	systick_delay_msec(10);       //Wait 10 ms to enable the clock of PORTB
-  GPIO_PORTB_DIR_R |= 0xFF;     //Set Port B Pins as Output Pins
+  	GPIO_PORTB_DIR_R |= 0xFF;     //Set Port B Pins as Output Pins
 	GPIO_PORTB_DEN_R |= 0xFF;     //Enable Port B Digital
-	LCD4bits_Cmd(0x28);          //2 lines and 5x7 character (4-bit data, D4 to D7) 
-	LCD4bits_Cmd(0x06);          //Automatic Increment cursor (shift cursor to right)
-	LCD4bits_Cmd(lcd_clear);		 //Clear display screen
-	LCD4bits_Cmd(0x0F);          //Cursor Blink
+	LCD4bits_Cmd(0x28);           //2 lines and 5x7 character (4-bit data, D4 to D7) 
+	LCD4bits_Cmd(0x06);           //Automatic Increment cursor (shift cursor to right)
+	LCD4bits_Cmd(lcd_clear);      //Clear display screen
+	LCD4bits_Cmd(0x0F);           //Cursor Blink
 }
+
+void LCD_WriteString(char* str)
+{  
+	volatile int i = 0;          	//i must be pulled from memory 
+	while(*(str+i) != '\0')       	//Continue until you find the Null-Terminating Character.
+	{
+		LCD4bits_Data(*(str+i)); //Print each character of the string on the LCD
+		i++;                        
+	}
+}
+
+
+
+
 
 
 
