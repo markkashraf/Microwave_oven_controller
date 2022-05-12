@@ -28,15 +28,15 @@ void LCD4bits_Data(unsigned char data)
 {
 	LCD_Write4bits(data & 0xF0 , RS);   //send the Upper 4-bits
 	LCD_Write4bits(data << 4 , RS);     //then the Lower 4-bits
-	delay_micro(40);										//delay for LCD 
+	delay_micro(40);		    //Delay for LCD 
 }
 
 void LCD_WriteString(char * str)
 {  
-	volatile int i = 0;          //volatile is important (i must be pulled from memory) 
-	while(*(str+i) != '\0')       //Continue until you find the Null-Terminating Character.
+	volatile int i = 0;          	//i must be pulled from memory 
+	while(*(str+i) != '\0')       	//Continue until you find the Null-Terminating Character.
 	{
-		LCD4bits_Data(*(str+i));    //Print each character of the string on the LCD
+		LCD4bits_Data(*(str+i)); //Print each character of the string on the LCD
 		i++;                        
 	}
 }
@@ -44,10 +44,10 @@ void LCD_WriteString(char * str)
 void LCD4bits_Cmd(unsigned char command)
 {
 	LCD_Write4bits(command & 0xF0 , 0);    //upper 4-bits first
-	LCD_Write4bits(command << 4 , 0);			 //then lower 4-bits
+	LCD_Write4bits(command << 4 , 0);      //then lower 4-bits
 	
 	if(command < 4)
-		systick_delay_msec(2);       //commands 1 and 2 need around ~1.64ms (Check LCD Delays Table)
+		systick_delay_msec(2);          //commands 1 and 2 need around ~1.64ms (Check LCD Delays Table)
 	else
 		delay_micro(40);      //other commands take 40 us
 }
