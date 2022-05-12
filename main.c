@@ -1,18 +1,19 @@
 #include <stdio.h>
 
+
 void State_A_Enter()
 {
      printf("State_A_Entered\n");
 }
 
 
-void State_A_loop()
+void State_A_Loop()
 {
      printf("State_B_looping\n");
 }
 
 
-void State_A_output()
+void State_A_Output()
 {
      printf("State_B_output\n");
 }
@@ -20,13 +21,23 @@ void State_A_output()
 typedef void (*f_pointer_void_void)(void);
 
 
+typedef struct StateStruct
+{
+    f_pointer_void_void Enter;
+    f_pointer_void_void Loop;
+    f_pointer_void_void Output;
+} StateStruct;
+ 
+
+
+
+
 int main()
 {
     
-    f_pointer_void_void p  = State_A_Enter;
-    (*p) ();
-    p = State_A_loop;
-    (*p) ();
+    
+    StateStruct  State_A = {State_A_Enter , State_A_Loop, State_A_Output};
+    (*State_A.Enter)();
     
     
 
