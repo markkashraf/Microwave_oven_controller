@@ -4,11 +4,12 @@
 // LCD4bits_Cmd()  ----> Excecute a Command on the LCD from the Command Table
 // LCD4bits_Init() ----> Initializes the LCD. (Must be executed only once.)
 // LCD_Wirite4bits() --> Send 4 bits of the data (This Function is intended to be used internally and SHOULD NOT be used inside the program)
-// LCD_WriteString() --> Print a string on the LCD. #New#
-// Cursor_Left(n) -----> Shift cursor to the left by n characters.  #New#
-// Cursor_Right(n) ----> Shift cursor to the right by n characters. #New#
+// LCD_WriteString() --> Print a string on the LCD. 
+// Cursor_Left(n) -----> Shift cursor to the left by n characters.  
+// Cursor_Right(n) ----> Shift cursor to the right by n characters. 
 //
 // Note : Data are connected through ports PB4->PB7
+//
 //
 #define RS 0x01				 	//RS -> PB0 (0x01)
 #define EN 0x04  		 	 	//EN -> PB2 (0x04)
@@ -89,3 +90,4 @@ void Cursor_Right(int n)
 		LCD4bits_Cmd(Move_Cursor_Right);
 	}
 }
+
