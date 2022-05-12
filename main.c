@@ -86,8 +86,15 @@ int main()
         
     };
     
-    loop[1]();
-    myStates.State_A.Enter();
+    
+    enum States { State_A, State_B };
+    
+    typedef enum States StatesEnum;
+    
+    StatesEnum CurretState = State_A;
+    
+    loop[CurretState]();
+
 
     return 0;
 }
