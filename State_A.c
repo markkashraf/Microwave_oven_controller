@@ -2,7 +2,7 @@
 #include "FSMmanager.h"
 void State_A_Enter()
 {
-    CurretState = State_B;
+    CurretState = State_A;
      printf("State_A_Entered\n");
 }
 
