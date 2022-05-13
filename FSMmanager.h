@@ -15,19 +15,20 @@ typedef struct StateNoParameters
     f_pointer_void_void Output;
 } StateNoParameters;
 
-typedef struct StateOneEnterParameter
+typedef struct StateOneEnterParameter_int
 {
     f_pointer_void_int Enter;
     f_pointer_void_void Loop;
     f_pointer_void_void Output;
-} StateOneEnterParameter;
+    int t;
+} StateOneEnterParameter_int;
 
 
 
 typedef struct States
 {
     StateNoParameters State_A;
-    StateOneEnterParameter State_B;
+    StateOneEnterParameter_int State_B;
 }States;
 
 extern States myStates ; //Extern tells the complier this variable exist and I am gonna use it but it is actually declared somewhere else

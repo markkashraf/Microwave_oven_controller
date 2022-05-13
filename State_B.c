@@ -4,6 +4,7 @@
 void State_B_Enter(int x)
 {
      CurretState = State_B;
+     myStates.State_B.t=x;
      printf("State_B_Entered and the enter Parameter is %i \n", x);
 }
 
