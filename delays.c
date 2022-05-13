@@ -10,6 +10,7 @@ void delay_micro(int n){
 
 }
 
+
 //systick delay functions
 void SysTick_Wait(unsigned long delay) // delay = number of ticks
 {
@@ -34,4 +35,5 @@ void systick_delay_msec(int t) //delay by milli seconds.
             {
             SysTick_Wait1ms();
             }
+}
 }
