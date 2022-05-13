@@ -1,3 +1,7 @@
+
+void FSM_int();
+
+
 enum StatesEnum { State_A, State_B };
     
 typedef enum StatesEnum StatesEnum;
@@ -36,4 +40,6 @@ extern States myStates ; //Extern tells the complier this variable exist and I a
 extern f_pointer_void_void* loop;
 
 extern StatesEnum CurretState;
+
+
 

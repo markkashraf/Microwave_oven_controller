@@ -11,7 +11,7 @@ int main()
      
    FSM_int();
     
-    CurretState = State_A;
+    CurretState = State_B;
 
     myStates.State_B.Enter(4);
     
