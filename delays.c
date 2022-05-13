@@ -25,13 +25,13 @@ void SysTick_Wait(unsigned long delay) // delay = number of ticks
 
 void SysTick_Wait1ms()
 {
-SysTick_Wait(16000);
+      SysTick_Wait(16000);
 }
 void systick_delay_msec(int t) //delay by milli seconds.
 {
-int i; 
-for(i=0; i<t; i++)
-{
-SysTick_Wait1ms();
-}
+      int i; 
+      for(i=0; i<t; i++)
+            {
+            SysTick_Wait1ms();
+            }
 }
