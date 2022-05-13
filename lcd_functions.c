@@ -75,7 +75,7 @@ void Cursor_Left(int n)
 {
 	int CurrentPosition;
 
-	for(CurrentPosition=0; CurrentPosition<n; j++)
+	for(CurrentPosition=0; CurrentPosition<n; CurrentPosition++)
 	{
 		LCD4bits_Cmd(Move_Cursor_Left);
 	}
@@ -85,7 +85,7 @@ void Cursor_Right(int n)
 {
 	int CurrentPosition;
 
-	for(CurrentPosition=0;CurrentPosition<n;j++)
+	for(CurrentPosition=0;CurrentPosition<n;CurrentPosition++)
 	{
 		LCD4bits_Cmd(Move_Cursor_Right);
 	}
