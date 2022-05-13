@@ -13,7 +13,7 @@ int main()
     
     CurretState = State_A;
 
-     myStates.State_B.Enter(4);
+    myStates.State_B.Enter(4);
     
     loop[CurretState]();
 

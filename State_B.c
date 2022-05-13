@@ -18,3 +18,12 @@ void State_B_Output()
 {
      printf("State_B_output\n");
 }
+
+void State_B_Init()
+{
+     myStates.State_B.Enter  = State_B_Enter;
+     myStates.State_B.Loop   = State_B_Loop;
+     myStates.State_B.Output = State_B_Output;
+     loop[State_B] = myStates.State_B.Loop;
+
+}

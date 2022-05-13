@@ -1,4 +1,4 @@
-#include"State_A.h"
+#include "State_A.h"
 #include "FSMmanager.h"
 void State_A_Enter()
 {
@@ -16,4 +16,12 @@ void State_A_Loop()
 void State_A_Output()
 {
      printf("State_A_output\n");
+}
+
+void State_A_Init()
+{
+     myStates.State_A.Enter  = State_A_Enter;
+     myStates.State_A.Loop   = State_A_Loop;
+     myStates.State_A.Output = State_A_Output;
+     loop[State_A] = myStates.State_A.Loop;
 }
