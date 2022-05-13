@@ -11,11 +11,11 @@ int main()
      
    FSM_int();
     
-    CurretState = State_B;
+    CurrentState = Idle;
 
-    myStates.State_B.Enter(4);
+    myStates.Idle.Enter();
     
-    loop[CurretState]();
+    while (1) loop[CurrentState]();
 
 
 }
