@@ -4,7 +4,7 @@
 void Popcorn_Enter()
 {
      CurrentState = Popcorn;
-     printf("Popcorn_Entered and the enter Parameter is %i \n");
+     printf("Popcorn_Entered and the enter Parameter is \n");
 }
 
 

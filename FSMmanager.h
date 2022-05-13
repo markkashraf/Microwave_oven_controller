@@ -26,7 +26,7 @@ typedef struct StateOneEnterParameter_int
     f_pointer_void_int Enter;
     f_pointer_void_void Loop;
     f_pointer_void_void Output;
-    int x;
+    int parameter;
 } StateOneEnterParameter_int;
 
 

@@ -15,10 +15,11 @@ void FSM_int()
     loop = (f_pointer_void_void*)calloc(NOfStates, sizeof(f_pointer_void_void));
     Idle_Init();
     Popcorn_Init();
-
-     
-    
-   
+    BeefChicken_Init();
+    FreeTimer_Init();
+    Pause_Init();
+    Popcorn_Init();
+  
 };
 
 StatesEnum CurrentState;
