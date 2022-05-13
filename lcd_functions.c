@@ -7,10 +7,9 @@
 // LCD_WriteString() --> Print a string on the LCD. 
 // Cursor_Left(n) -----> Shift cursor to the left by n characters.  
 // Cursor_Right(n) ----> Shift cursor to the right by n characters. 
-//
+
 // Note : Data are connected through ports PB4->PB7
-//
-//
+
 #define RS 0x01				 	//RS -> PB0 (0x01)
 #define EN 0x04  		 	 	//EN -> PB2 (0x04)
 #define Move_Cursor_Left 0x10
