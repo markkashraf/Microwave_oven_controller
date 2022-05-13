@@ -3,6 +3,12 @@
 
 void Timer_Enter(int minutes ,int seconds)
 {
+    
+}
+
+
+void Timer_Loop()
+{
 CurrentState = Timer;
 int i , j;
 
@@ -11,6 +17,7 @@ for(i = minutes; i>=0; i--)
     
 for(j = seconds; j>=0; j--)
 {
+    int flag = pause;
     
     LCD4bits_Data((i/10)+'0');// Send second digit in minutes
 
@@ -25,20 +32,12 @@ for(j = seconds; j>=0; j--)
     systick_delay_msec(1000); //wait 1 sec
     
     LCD4bits_Cmd(lcd_clear); // clear screen
-
+     
     }
     seconds = 59; //after first second all minutes are 60 seconds
 
     }
     
-   
-    
-}
-
-
-void Timer_Loop()
-{
-    printf("Timer_looping\n");
 }
 
 
