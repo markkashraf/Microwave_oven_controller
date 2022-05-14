@@ -5,6 +5,7 @@
 //PA2-4 are initialized to be used later with buzzer and push button
 
 #include "tm4c123gh6pm.h"
+#include "Ports_init.h"
 
 
 void PortF_init(void){
@@ -70,4 +71,17 @@ void PortE_init(void){       // rows
 	GPIO_PORTE_DEN_R |= 0x0F;
 	GPIO_PORTE_PDR_R |= 0x0F;
 	GPIO_PORTE_DATA_R &= ~0x0F;	
+}
+
+unsigned char Switch1_input(void){
+	return GPIO_PORTF_DATA_R & 0x10;
+}
+
+unsigned char Switch2_input(void){
+	return GPIO_PORTF_DATA_R & 0x01;
+}
+
+void Output_on_leds(unsigned char data){
+	GPIO_PORTF_DATA_R &= ~0x0E;
+	GPIO_PORTF_DATA_R = data;
 }
