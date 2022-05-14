@@ -5,47 +5,38 @@
 //PA2-4 are initialized to be used later with buzzer and push button
 
 #include "tm4c123gh6pm.h"
+#include "Ports_init.h"
 
 
-void Leds_init(void){
+
+void PortF_init(void){
 	SYSCTL_RCGCGPIO_R |= 0X20;
 	while((SYSCTL_PRGPIO_R &= 0X20) == 0);
 	GPIO_PORTF_LOCK_R = 0x4C4F434B;
-	GPIO_PORTF_CR_R |= 0x0E;
-	GPIO_PORTF_AMSEL_R &= ~0x0E;
-	GPIO_PORTF_PCTL_R &= ~0x0000FFF0;
-	GPIO_PORTF_AFSEL_R &= ~0x0E;
-	GPIO_PORTF_DIR_R |= 0x0E;
-	GPIO_PORTF_DEN_R |= 0x0E;
+	GPIO_PORTF_CR_R |= 0x1F;
+	GPIO_PORTF_AMSEL_R &= ~0x1F;
+	GPIO_PORTF_PCTL_R &= ~0x000FFFFF;
+	GPIO_PORTF_AFSEL_R &= ~0x1F;
+	GPIO_PORTF_DIR_R = 0x0E;
+	GPIO_PORTF_DEN_R |= 0x1F;
+	GPIO_PORTF_PUR_R |= 0x11;
 	GPIO_PORTF_DATA_R &= ~0x0E;	
 }
 
-void SW1_Init(void)
-{
-	SYSCTL_RCGCGPIO_R |= 0x20;
-	while((SYSCTL_PRGPIO_R&0X20)==0);
-	GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY;
-	GPIO_PORTF_AMSEL_R &=~ 0X10;
-	GPIO_PORTF_CR_R |=0X10;
-	GPIO_PORTF_PCTL_R &=~0X000F0000;
-	GPIO_PORTF_AFSEL_R &=~0X10;
-	GPIO_PORTF_DIR_R &=~ 0X10;
-	GPIO_PORTF_DEN_R |= 0X10;
-	GPIO_PORTF_PUR_R |= 0x10;
+unsigned char Switch1_input(void){
+	return GPIO_PORTF_DATA_R & 0x10;
 }
-void SW2_Init(void)
-{
-	SYSCTL_RCGCGPIO_R |= 0x20;
-	while((SYSCTL_PRGPIO_R&0X20)==0);
-	GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY;
-	GPIO_PORTF_AMSEL_R &=~ 0X01;
-	GPIO_PORTF_CR_R |=0X01;
-	GPIO_PORTF_PCTL_R &=~0X0000000F;
-	GPIO_PORTF_AFSEL_R &=~0X01;
-	GPIO_PORTF_DIR_R &=~ 0X01;
-	GPIO_PORTF_DEN_R |= 0X01;
-	GPIO_PORTF_PUR_R |= 0x01;
+
+unsigned char Switch2_input(void){
+	return GPIO_PORTF_DATA_R & 0x01;
 }
+
+void Output_on_leds(unsigned char data){
+	GPIO_PORTF_DATA_R &= ~0x0E;
+	GPIO_PORTF_DATA_R = data;
+}
+
+
 
 void PortA_init(void){         
 	SYSCTL_RCGCGPIO_R |= 0x01;
@@ -96,6 +87,7 @@ void PortE_init(void){       // rows
 	GPIO_PORTE_DATA_R &= ~0x0F;	
 }
 
+
 //buzzer works for 0.5 sec
 void Buzz(void) {
 	
@@ -104,3 +96,4 @@ void Buzz(void) {
 	GPIO_PORTA_DATA_R &= ~0x02;
 	
 }
+

@@ -1,4 +1,3 @@
-
 void FSM_int();
 
 
@@ -10,6 +9,7 @@ typedef enum StatesEnum StatesEnum;
 typedef void (*f_pointer_void_void)(void);
 typedef void (*f_pointer_void_int)(int);
 typedef void (*f_pointer_void_int_int)(int, int);
+typedef int  (*f_pointer_int_void)(void);
 
 
 
@@ -30,8 +30,6 @@ typedef struct StateOneEnterParameter_int
 } StateOneEnterParameter_int;
 
 
-
-
 typedef struct StateTwoEnterParameter_int
 {
     f_pointer_void_int_int Enter;
@@ -40,6 +38,14 @@ typedef struct StateTwoEnterParameter_int
     int minutes;
     int seconds;
 } StateTwoEnterParameter_int;
+
+typedef struct StateNoParameterReturn
+{
+    f_pointer_int_void Enter;
+    f_pointer_void_void Loop;
+    f_pointer_void_void Output;
+} StateNoParameterReturn;
+
 
 
 
@@ -50,7 +56,7 @@ typedef struct States
     StateNoParameters Popcorn;
     StateOneEnterParameter_int BeefChicken;
     StateNoParameters FreeTimer;
-    StateOneEnterParameter_int Pause;
+    StateNoParameterReturn Pause;
     StateTwoEnterParameter_int Timer;
 
 }States;

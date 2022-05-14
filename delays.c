@@ -1,8 +1,6 @@
 #include "tm4c123gh6pm.h"
 
-
 //extra delay functions
-
 void delay_micro(int n){
       int i,j;
       for(i=0;i<n;i++)
@@ -37,3 +35,32 @@ void systick_delay_msec(int t) //delay by milli seconds.
             }
 }
 }
+
+
+int Systick_RF(int t) // Systick Wait 1ms and Return Flag
+{
+int i;
+int flag = 0;
+for(i = 0; i<t; i++)
+{
+
+SysTick_Wait1ms();
+
+if((GPIO_PORTF_DATA_R&0x10) == 0) // PF0 (Pause) is pressed
+{
+	flag = 1;
+}
+
+if((GPIO_PORTF_DATA_R&0x01) == 0) // PF1 (Start is pressed)
+{
+	flag = 2;
+}
+
+}
+	return flag;
+}
+
+//Flag Modes:
+// 0 --> Nothing is Pressed
+// 1 --> Pause Button Was Pressed
+// 2 --> Stop Button Was Pressed
