@@ -15,9 +15,7 @@ void Timer_Enter(int minutes ,int seconds)
 		min = minutes;
 		sec = seconds;
     CurrentState = Timer;
-
 }
-
 
 void Timer_Loop()
 {
@@ -29,7 +27,16 @@ LCD4bits_Cmd(0x01);
 
 if(sec == 0 && min ==0)
 {
-myStates.Idle.Enter();
+int l;
+for(l=0; l<3; l++) // Blink 3 Times
+{	
+GPIO_PORTF_DATA_R ^= 0x0E;
+systick_delay_msec(300);
+GPIO_PORTF_DATA_R ^= 0x0E;
+Buzz_Long();
+systick_delay_msec(1000);		
+}	
+myStates.Idle.Enter(); // Enter Idle State
 return;
 }
 
