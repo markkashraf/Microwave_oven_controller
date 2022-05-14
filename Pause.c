@@ -5,14 +5,21 @@ void Pause_Enter(int parameter)
 {
     myStates.Pause .parameter = parameter;
     CurrentState = Pause;
-    
+   
+    //Make LEDs Blink   
 }
 
 
 void Pause_Loop()
 {
-     
-    printf("Pause_looping\n");
+   while(1)
+   {
+    //Wait until the pause button or the start button is pressed and return its value in this function.
+   
+   
+   
+   }
+   
 }
 
 

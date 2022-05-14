@@ -1,16 +1,23 @@
+//Documentation for the Keypad Driver V1.0 and Functions.
+//
+//get_keypad_input() ----> Keeps pulling until the user presses a button on the Keypad.
+//
+//
+//
 
 #include "tm4c123gh6pm.h"
 #include "delays.h"
 
 unsigned char symbol[4][4] ={{'1', '2' ,'3', 'A'},{'4', '5', '6', 'B'},{'7', '8', '9', 'C'},{'*', '0', '#', 'D'}};
 
-char get_keypad_input(void){
-	int i,j;
+char get_keypad_input(void)
+{
 	
+int i,j; 
 	
-	while(1){
+while(1){
 		
-		for( i = 0; i < 4; i++)                        //columns traverse
+for( i = 0; i < 4; i++)           //columns traverse
     {
       GPIO_PORTC_DATA_R = (1U << (i+4));
       delay_micro(2);
