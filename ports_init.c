@@ -23,6 +23,19 @@ void PortF_init(void){
 	GPIO_PORTF_DATA_R &= ~0x0E;	
 }
 
+unsigned char Switch1_input(void){
+	return GPIO_PORTF_DATA_R & 0x10;
+}
+
+unsigned char Switch2_input(void){
+	return GPIO_PORTF_DATA_R & 0x01;
+}
+
+void Output_on_leds(unsigned char data){
+	GPIO_PORTF_DATA_R &= ~0x0E;
+	GPIO_PORTF_DATA_R = data;
+}
+
 
 
 void PortA_init(void){         
