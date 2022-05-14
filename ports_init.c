@@ -38,16 +38,24 @@ void Output_on_leds(unsigned char data){
 }
 
 
-
+//A2 connected to buzzer 
+//A3 connected to PUR switch
 void PortA_init(void){         
 	SYSCTL_RCGCGPIO_R |= 0x01;
 	while((SYSCTL_PRGPIO_R &= 0x01) == 0);
-	GPIO_PORTA_AMSEL_R &= ~0x04;  
-	GPIO_PORTA_PCTL_R &= ~0x00000F00;
-	GPIO_PORTA_AFSEL_R &= ~0x04;
+	GPIO_PORTA_AMSEL_R &= ~0x0C;  
+	GPIO_PORTA_PCTL_R &= ~0x0000FF00;
+	GPIO_PORTA_AFSEL_R &= ~0x0C;
 	GPIO_PORTA_DIR_R |= 0x04;
-	GPIO_PORTA_DEN_R |= 0x04;
-	GPIO_PORTA_DATA_R &= ~0x04;	
+	GPIO_PORTA_DIR_R &= ~0x04;
+	GPIO_PORTA_DEN_R |= 0x0C;
+	GPIO_PORTA_PUR_R |= 0x08
+	GPIO_PORTA_DATA_R &= ~0x0C;	
+}
+
+unsigned char Switch3_input(void){
+    return GPIO_PORTA_DATA_R & 0x08;
+
 }
 
 void PortB_init(void){        
@@ -90,11 +98,20 @@ void PortE_init(void){       // rows
 
 
 //buzzer works for 0.5 sec
-void Buzz(void) {
+void Buzz_Long(void) {
 	
-	GPIO_PORTA_DATA_R = 0x02;
+	GPIO_PORTA_DATA_R = 0x04;
 	systick_delay_msec(500);
-	GPIO_PORTA_DATA_R &= ~0x02;
+	GPIO_PORTA_DATA_R &= ~0x04;
+	
+}
+
+//buzzer works for 0.2 sec
+void Buzz_Long(void) {
+	
+	GPIO_PORTA_DATA_R = 0x04;
+	systick_delay_msec(200);
+	GPIO_PORTA_DATA_R &= ~0x04;
 	
 }
 
