@@ -3,11 +3,15 @@ void PortA_init(void);
 void PortB_init(void);
 void PortC_init(void);
 void PortE_init(void);
+void SW3_init(void);
 
-void Buzz(void);
+void Buzz_Short(void);
+void Buzz_Long(void);
 
 unsigned char Switch1_input(void);
 unsigned char Switch2_input(void);
+unsigned char Switch3_input(void);
+
 void Output_on_leds(unsigned char data);
 
 #define red 0x02;
