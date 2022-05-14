@@ -4,21 +4,20 @@
 void Popcorn_Enter()
 {
      CurrentState = Popcorn;
-	  LCD4bits_Cmd(lcd_clear);      //LCD clears
-     
-	 LCD_WriteString("Popcorn      (1min) ");
-
+     Popcorn_Output();
+     myStates.Timer.Enter(1,0);
+}
+         
 
 void Popcorn_Loop()
 {
-   if (GPIO_PORTF_DATA_R & 0x10 == 0)
-		        myStates.Timer.Enter(1,1)	
 }
 
 
 void Popcorn_Output()
 {
-
+     LCD4bits_Cmd(lcd_clear);      //LCD clears
+     LCD_WriteString("Popcorn ");
 }
 
 void Popcorn_Init()
