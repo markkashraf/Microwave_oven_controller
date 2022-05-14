@@ -8,6 +8,7 @@
 #include "Ports_init.h"
 
 
+
 void PortF_init(void){
 	SYSCTL_RCGCGPIO_R |= 0X20;
 	while((SYSCTL_PRGPIO_R &= 0X20) == 0);
