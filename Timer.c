@@ -39,7 +39,7 @@ min--;
 sec = 59;
 }
 
-if(flag)
+if(flag==1)
 {
 	myStates.Pause.Enter(min,sec);
 
