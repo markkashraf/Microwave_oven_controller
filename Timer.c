@@ -39,7 +39,7 @@ min--;
 sec = 59;
 }
 
-if(flag==1 || flag ==3 ) //Door Open or Switch is pressed
+if(flag==1 || flag ==3 ) //Door Open or Pause is pressed
 {
 	myStates.Pause.Enter(min,sec);
 
