@@ -7,6 +7,7 @@
 
 #include "tm4c123gh6pm.h"
 #include "delays.h"
+#include "ports_init.h"
 
 unsigned char symbol[4][4] ={{'1', '2' ,'3', 'A'},{'4', '5', '6', 'B'},{'7', '8', '9', 'C'},{'*', '0', '#', 'D'}};
 
@@ -16,6 +17,8 @@ char get_keypad_input(void)
 int i,j; 
 	
 while(1){
+	
+	if(Switch2_input() == 0) return 'x';
 		
 for( i = 0; i < 4; i++)           //columns traverse
     {
