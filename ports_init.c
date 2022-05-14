@@ -74,15 +74,3 @@ void PortE_init(void){       // rows
 	GPIO_PORTE_DATA_R &= ~0x0F;	
 }
 
-unsigned char Switch1_input(void){
-	return GPIO_PORTF_DATA_R & 0x10;
-}
-
-unsigned char Switch2_input(void){
-	return GPIO_PORTF_DATA_R & 0x01;
-}
-
-void Output_on_leds(unsigned char data){
-	GPIO_PORTF_DATA_R &= ~0x0E;
-	GPIO_PORTF_DATA_R = data;
-}
