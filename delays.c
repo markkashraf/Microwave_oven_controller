@@ -39,28 +39,28 @@ void systick_delay_msec(int t) //delay by milli seconds.
 
 int Systick_RF(int t) // Systick Wait 1ms and Return Flag
 {
-int i;
-int flag = 0;
-for(i = 0; i<t; i++)
-{
+	int i;
+	int flag = 0;
+	for(i = 0; i<t; i++)
+	{
 
-SysTick_Wait1ms();
+		SysTick_Wait1ms();
 
-if((GPIO_PORTF_DATA_R&0x10) == 0) // PF0 (Pause is pressed)
-{
-	flag = 1;
-}
+		if((GPIO_PORTF_DATA_R&0x10) == 0) // PF0 (Pause is pressed)
+		{
+			flag = 1;
+		}
 
-if((GPIO_PORTF_DATA_R&0x01) == 0) // PF1 (Start is pressed)
-{
-	flag = 2;
-}
-if((Switch3_input()&0x0) == 0) // PA3 (Doon is open) 
-{
-	flag = 3;
-}		
+		if((GPIO_PORTF_DATA_R&0x01) == 0) // PF1 (Start is pressed)
+		{
+			flag = 2;
+		}
+		if(Switch3_input() == 0) // PA3 (Doon is open) 
+		{
+			flag = 3;
+		}		
 
-}
+	}
 	return flag;
 }
 
