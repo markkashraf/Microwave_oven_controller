@@ -1,8 +1,6 @@
 #include "tm4c123gh6pm.h"
 
-
 //extra delay functions
-
 void delay_micro(int n){
       int i,j;
       for(i=0;i<n;i++)
