@@ -95,3 +95,12 @@ void PortE_init(void){       // rows
 	GPIO_PORTE_PDR_R |= 0x0F;
 	GPIO_PORTE_DATA_R &= ~0x0F;	
 }
+
+//buzzer works for 0.5 sec
+void Buzz(void) {
+	
+	GPIO_PORTA_DATA_R = 0x02;
+	systick_delay_msec(500);
+	GPIO_PORTA_DATA_R &= ~0x02;
+	
+}
