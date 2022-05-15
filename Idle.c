@@ -36,7 +36,7 @@ void Idle_Loop()
 void Idle_Output()
 {
 		LCD4bits_Cmd(0x01);
-		LCD_WriteString("Ready for input");
+		LCD_WriteString("Enter mode");
 		systick_delay_msec(500);
 }
 
