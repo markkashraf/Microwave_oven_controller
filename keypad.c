@@ -18,7 +18,8 @@ int i,j;
 	
 while(1){
 	
-	if(Switch2_input() == 0) return 'x';
+	if(Switch2_input() == 0) return 'x';   //extra detection of start button
+	if(Switch1_input() == 0) return 'z';   //extra detection of pause button
 		
 for( i = 0; i < 4; i++)           //columns traverse
     {
@@ -26,9 +27,11 @@ for( i = 0; i < 4; i++)           //columns traverse
       delay_micro(2);
       for( j = 0; j < 4; j++)                     //rows traverse
       {
-        if((GPIO_PORTE_DATA_R &0x0F )& (1U << j))
-		Buzz_Short();
-          return symbol[j][i];
+        if((GPIO_PORTE_DATA_R &0x0F )& (1U << j)){
+						Buzz_Short();
+						return symbol[j][i];
+				}
+          
       }
     }
 
