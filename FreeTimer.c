@@ -9,26 +9,20 @@
 char arr[4] = {'0','0','0','0'};
 char k;
 
-int i = 0,j,r = 0, t = 0,fl;
+int i,j,r,t;
 
 void FreeTimer_Enter()  
 {
      CurrentState = FreeTimer;
-			LCD4bits_Cmd(0x01);
-			LCD_WriteString("00:00");
-			LCD4bits_Cmd(0x0C);		
+			i = 0, r = 0, t = 0;
+			myStates.FreeTimer.Output();
+					
 }
 
 void FreeTimer_Loop()
 {
 	
 	systick_delay_msec(500);
-	
-	if(i == 4)
-	{
-		myStates.FreeTimer.Output();
-		return;
-	}
 	
 	if(i == 2)Cursor_Left(4);
 	
@@ -37,21 +31,48 @@ void FreeTimer_Loop()
 	else Cursor_Left(i+1);
 	
 	k = get_keypad_input();
-	 if(k == 'x'){
+		//if start button is pressed
+	 if(k == 'x')
+		 {
 		 
+			LCD4bits_Cmd(0x01);
+		 //only one number is currently displayed
+			if(i == 1){
+				 myStates.Timer.Enter((arr[3]-48)*10 + arr[2]-48 , (arr[1]-48)*10 + arr[0]-48);
+					return;
+			}
+			//two numbers are currently displayed
+			else if(i == 2){
+				 myStates.Timer.Enter((arr[3]-48)*10 + arr[2]-48 , (arr[0]-48)*10 + arr[1]-48);
+					return;
+			}
+			//three numbers are currently displayed
+			else if(i == 3){
+				 myStates.Timer.Enter((arr[3]-48)*10 + arr[0]-48 , (arr[1]-48)*10 + arr[2]-48);
+					return;
+			}
+			//four numbers are currently displayed
+			else if(i == 4){
+				myStates.Timer.Enter((arr[0]-48)*10 + arr[1]-48 , (arr[2]-48)*10 + arr[3]-48);
+				return;
+				}
+		 }
+	 
+	 //if pause button is pressed
+	 else if(k == 'z')
+	{
+		 myStates.FreeTimer.Enter();
+		 return;
+	 }
+	 
+	 //if an illegal button is pressed
+	 else if(k > 57 || k < 48)
+   {
 		 LCD4bits_Cmd(0x01);
-		if(i == 1){
-			 myStates.Timer.Enter((arr[3]-48)*10 + arr[2]-48 , (arr[1]-48)*10 + arr[0]-48);
-				return;
-		}
-		else if(i == 2){
-			 myStates.Timer.Enter((arr[3]-48)*10 + arr[2]-48 , (arr[0]-48)*10 + arr[1]-48);
-				return;
-		}
-		else if(i == 3){
-			 myStates.Timer.Enter((arr[3]-48)*10 + arr[0]-48 , (arr[1]-48)*10 + arr[2]-48);
-				return;
-		} 
+		 LCD_WriteString("Err");
+		 systick_delay_msec(1500);
+		 myStates.FreeTimer.Enter();
+		 return;
 	 }
 
 	arr[i] = k;
@@ -82,9 +103,11 @@ void FreeTimer_Loop()
 
 void FreeTimer_Output()
 {
-			while(!(Switch2_input() == 0));
 			LCD4bits_Cmd(0x01);
-     myStates.Timer.Enter((arr[0]-48)*10 + arr[1]-48 , (arr[2]-48)*10 + arr[3]-48);
+			LCD_WriteString("Cooking time?");
+			LCD4bits_Cmd(0xC0);
+			LCD_WriteString("00:00");
+			LCD4bits_Cmd(0x0C);
 }
 
 void FreeTimer_Init()
