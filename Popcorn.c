@@ -4,19 +4,20 @@
 void Popcorn_Enter()
 {
      CurrentState = Popcorn;
-     printf("Popcorn_Entered and the enter Parameter is \n");
+     Popcorn_Output();
+     myStates.Timer.Enter(1,0);
 }
-
+         
 
 void Popcorn_Loop()
 {
-     printf("Popcorn_looping\n");
 }
 
 
 void Popcorn_Output()
 {
-     printf("Popcorn_output\n");
+     LCD4bits_Cmd(lcd_clear);      //LCD clears
+     LCD_WriteString("Popcorn ");
 }
 
 void Popcorn_Init()

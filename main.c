@@ -6,15 +6,12 @@
 
 int main()
 {
-
-
      
    FSM_int();
-    
-    CurrentState = Idle;
+   CurrentState = Idle;
 
     myStates.Idle.Enter();
-    
+     
     while (1) loop[CurrentState]();
 
 

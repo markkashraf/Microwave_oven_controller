@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "state_a.h": "c",
-        "popcorn.h": "c",
-        "beefchicken.h": "c",
-        "fsmmanager.h": "c",
-        "pause.h": "c"
-    }
-}
