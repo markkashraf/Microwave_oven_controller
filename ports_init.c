@@ -97,15 +97,6 @@ void PortE_init(void){       // rows
 }
 
 
-//buzzer works for 0.5 sec
-void Buzz_Long(void) {
-	
-	GPIO_PORTA_DATA_R = 0x04;
-	systick_delay_msec(500);
-	GPIO_PORTA_DATA_R &= ~0x04;
-	
-}
-
 //buzzer works for 0.2 sec
 void Buzz_Short(void) {
 	
@@ -114,4 +105,24 @@ void Buzz_Short(void) {
 	GPIO_PORTA_DATA_R &= ~0x04;
 	
 }
+
+void flash(void) {
+	int t;
+	for(t = 0; t < 3; t++)
+	{
+		GPIO_PORTA_DATA_R = 0x04;
+		Output_on_leds(0x0E);
+		systick_delay_msec(500);
+		GPIO_PORTA_DATA_R &= ~0x04;
+		GPIO_PORTF_DATA_R &= ~0x0E;
+		systick_delay_msec(100);
+	}
+}
+	
+void blink(void){
+		GPIO_PORTF_DATA_R ^= 0x0E;
+    		systick_delay_msec(500);
+    		GPIO_PORTF_DATA_R ^= 0x0E;
+		systick_delay_msec(100);
+}	
 
