@@ -18,6 +18,7 @@ void Pause_Enter(int minutes ,int seconds)
 
 void Pause_Loop()
 { 
+	blink();
     if (Switch2_input() == 0)
     {
         myStates.Timer.Enter(myStates.Pause.minutes, myStates.Pause.seconds);
