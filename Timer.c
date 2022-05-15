@@ -17,7 +17,7 @@ void Timer_Enter(int minutes ,int seconds) // Enter Timer State
     myStates.Timer.Output(); // show the current time (first second)
     while(Switch2_input() != 0)// Wait until you press the start button
     {
-    	if(Switch1_Input==0) // If pause button is pressed
+    	if(Switch1_Input()==0) // If pause button is pressed
 	{
 		myStates.Idle.Enter(); // Enter the Idle State
       		return;
