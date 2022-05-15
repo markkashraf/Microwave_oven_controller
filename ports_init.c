@@ -107,7 +107,7 @@ void Buzz_Long(void) {
 }
 
 //buzzer works for 0.2 sec
-void Buzz_Long(void) {
+void Buzz_Short(void) {
 	
 	GPIO_PORTA_DATA_R = 0x04;
 	systick_delay_msec(200);
