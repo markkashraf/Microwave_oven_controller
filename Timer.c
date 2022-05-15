@@ -34,11 +34,12 @@ void Timer_Loop() // Enter Timer Loop (a loop that stays infinitely until Timer 
 	
      if(myStates.Timer.seconds == 0 && myStates.Timer.minutes == 0) 
       {
-      LCD4bits_Cmd(0x01); //Clear Screen 
-      LCD_WriteString("Finished"); // Print "Finished"
-      systick_delay_msec(3000); // Wait 3 Seconds
-      myStates.Idle.Enter(); // Enter the Idle State
-      return;
+      		LCD4bits_Cmd(0x01); //Clear Screen 
+    		LCD_WriteString("Finished"); // Print "Finished"
+	    	flash();
+		systick_delay_msec(3000); // Wait 3 Seconds
+     		myStates.Idle.Enter(); // Enter the Idle State
+      		return;
       }
 	
 flag = Systick_RF(1000); // Wait for 1 Second and Check the Flags while waiting.
