@@ -6,17 +6,17 @@
 #include "delays.h"
 #include "tm4c123gh6pm.h"
 
-char arr[4] = {'0','0','0','0'};
+char arr[4];
 char k;
 
-int i,j,r,t;
+int i,j,r,t,p;
 
 void FreeTimer_Enter()  
 {
      CurrentState = FreeTimer;
-			i = 0, r = 0, t = 0;
-			myStates.FreeTimer.Output();
-					
+			i = 0, r = 0, t = 0,p = 0;
+			for(p = 0; p<4; p++)arr[p] = '0';
+			myStates.FreeTimer.Output();		
 }
 
 void FreeTimer_Loop()
@@ -61,7 +61,7 @@ void FreeTimer_Loop()
 	 //if pause button is pressed
 	 else if(k == 'z')
 	{
-		 myStates.FreeTimer.Enter();
+		 myStates.Idle.Enter();
 		 return;
 	 }
 	 
