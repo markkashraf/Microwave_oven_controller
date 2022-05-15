@@ -6,7 +6,8 @@ void PortE_init(void);
 void SW3_init(void);
 
 void Buzz_Short(void);
-void Buzz_Long(void);
+void flash(void);
+void blink(void);
 
 unsigned char Switch1_input(void);
 unsigned char Switch2_input(void);
