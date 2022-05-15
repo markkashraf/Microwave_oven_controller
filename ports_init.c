@@ -106,6 +106,7 @@ void Buzz_Short(void) {
 	
 }
 
+//Buzzer and LEDs alternates three times
 void flash(void) {
 	int t;
 	for(t = 0; t < 3; t++)
@@ -118,7 +119,8 @@ void flash(void) {
 		systick_delay_msec(100);
 	}
 }
-	
+
+//LEDs array turn on and off	
 void blink(void){
 		GPIO_PORTF_DATA_R ^= 0x0E;
     		systick_delay_msec(500);
