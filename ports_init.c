@@ -1,8 +1,12 @@
+//this file includes buzzer functions, switches input functions and ports initialization functions
+
+
 //RS and EN are connected to PB0 and PB2 respectively
 //data4-7 of lcd are connected to PB4-7
 //rows (input) are connected to PE0-3
 //columns (output) are connected to PC4-7
 //PA2-4 are initialized to be used later with buzzer and push button
+
 
 #include "tm4c123gh6pm.h"
 #include "Ports_init.h"
