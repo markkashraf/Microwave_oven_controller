@@ -18,7 +18,7 @@ void FSM_int()
     BeefChicken_Init();
     FreeTimer_Init();
     Pause_Init();
-    Popcorn_Init();
+    Timer_Init();
   
 };
 
