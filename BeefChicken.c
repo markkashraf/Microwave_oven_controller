@@ -11,16 +11,17 @@ int y,g,u,h;
 void BeefChicken_Enter(int parameter)
 {   g=parameter;
     CurrentState = BeefChicken;
-		LCD4bits_Cmd(0x01);   //clear LCD
+    LCD4bits_Cmd(0x01);   //clear LCD
+ 
     if(parameter=='B')
 		{
 			LCD_WriteString("Beef weight?");
 			
 		}
-		else if(parameter=='C')
-		{
-			LCD_WriteString("Chicken weight?");
-		}
+	else if(parameter=='C')
+	{
+		LCD_WriteString("Chicken weight?");
+	}
 		
 		y = get_keypad_input()-'0';   //get the weight in kilogram
 }
@@ -30,12 +31,11 @@ void BeefChicken_Loop()
 {   
     if (y<1 || y>9)            //error case
     {
-				LCD4bits_Cmd(0x01);
+	LCD4bits_Cmd(0x01);
         LCD_WriteString("Err");
-				systick_delay_msec(2000);
-        
-				myStates.BeefChicken.Enter(g);
-				return;
+	systick_delay_msec(2000);
+	myStates.BeefChicken.Enter(g);
+	return;			
     }
 		else
 		{
@@ -47,10 +47,10 @@ void BeefChicken_Loop()
 			LCD4bits_Cmd(0x01);    //clear LCD
 			if(g == 'C'){
 			
-							h = (10* y *1/5);              //Chicken mins
+						h = (10* y *1/5);              //Chicken mins
 							
-							myStates.Timer.Enter((h/10),(h%10)*60/10);
-							return;
+						myStates.Timer.Enter((h/10),(h%10)*60/10);
+						return;
 			}
 			else{
 						h = (10* y *1/2);			          //Beef mins
