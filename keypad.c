@@ -27,10 +27,11 @@ for( i = 0; i < 4; i++)           //columns traverse
       delay_micro(2);
       for( j = 0; j < 4; j++)                     //rows traverse
       {
-        if((GPIO_PORTE_DATA_R &0x0F )& (1U << j)){
-						Buzz_Short();
-						return symbol[j][i];
-				}
+		if((GPIO_PORTE_DATA_R &0x0F )& (1U << j))
+		{				
+			Buzz_Short();
+			return symbol[j][i];
+		}
           
       }
     }
