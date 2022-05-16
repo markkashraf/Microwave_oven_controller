@@ -31,6 +31,8 @@ void FreeTimer_Loop()
 	else Cursor_Left(i+1);
 	
 	k = get_keypad_input();
+	
+	
 		//if start button is pressed
 	 if(k == 'x')
 		 {
@@ -53,9 +55,22 @@ void FreeTimer_Loop()
 			}
 			//four numbers are currently displayed
 			else if(i == 4){
+				if(arr[0] >= '3' && arr[1] > '0')
+				{
+					LCD_WriteString("Err");
+					LCD4bits_Cmd(0xC0);
+					LCD_WriteString("max is 30 mins");
+					systick_delay_msec(2000);
+					myStates.Idle.Enter();
+					return;
+				
+				}
+				else{
 				myStates.Timer.Enter((arr[0]-48)*10 + arr[1]-48 , (arr[2]-48)*10 + arr[3]-48);
 				return;
+				
 				}
+			}
 		 }
 	 
 	 //if pause button is pressed
@@ -74,6 +89,15 @@ void FreeTimer_Loop()
 		 myStates.FreeTimer.Enter();
 		 return;
 	 }
+	 //if any button other than start or pause is pressed after 4 numbers has been entered
+	 else if(k != 'x' && k!= 'z' && i == 4)
+	{
+			LCD4bits_Cmd(0x01);
+			LCD_WriteString("Err");
+			systick_delay_msec(1500);
+			myStates.Idle.Enter();
+			return;
+	}
 
 	arr[i] = k;
 	
