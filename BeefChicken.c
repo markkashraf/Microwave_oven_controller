@@ -29,7 +29,7 @@ void BeefChicken_Enter(int parameter)
 
 void BeefChicken_Loop()
 {   
-    if (y<1 || y>9)            //error case
+    if ((y<1 || y>9) && y != 74)            //error case (z-'0' = 74) where z is returned if sw1 is pressed
     {
 	LCD4bits_Cmd(0x01);
         LCD_WriteString("Err");
@@ -37,8 +37,13 @@ void BeefChicken_Loop()
 	myStates.BeefChicken.Enter(g);
 	return;			
     }
-		else
-		{
+	else if(y == 74) // If pause button is pressed
+	{
+		myStates.Idle.Enter(); // Enter the Idle State
+		return;
+	}
+	else
+	{
 			LCD4bits_Cmd(0x01); //clear LCD
 			LCD_WriteString("Weight is "); 
 			LCD4bits_Data(y+'0');
