@@ -1,4 +1,5 @@
 #include "tm4c123gh6pm.h"
+#include "ports_init.h"
 
 //extra delay functions
 void delay_micro(int n){
