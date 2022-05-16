@@ -6,7 +6,7 @@
 
 int main()
 {	
-		int PassWord[4] = {1, 2, 3, 4};
+		int PassWord[4] = {4, 6, 9, 0};
 		LCD4bits_Init();
 		PortF_init();
 		PortC_init();
