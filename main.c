@@ -6,22 +6,25 @@
 
 int main()
 {	
-		int PassWord[4] = {4, 6, 9, 0};
-		LCD4bits_Init();
-		PortF_init();
-		PortC_init();
-		PortE_init();
-		PortA_init();
-		LCD4bits_Cmd(0x0C); //display on , cursor off
+	int PassWord[4] = {4, 6, 9, 0}; //Set the Password
+	LCD4bits_Init(); 		// Initialize LCD
+	PortF_init(); 			// Initialize PortF
+	PortC_init();			// Initialize PortC
+	PortE_init();			// Initialize PortE
+	PortA_init();			// Initialize PortA
+	
+	LCD4bits_Cmd(0x0C); 		//display on , cursor off
+		    
+	FSM_int(); 			// Inittialize the States
+	
+	CurrentState = Locked; 		// Set the First State to be the Locked State
 		
+        myStates.Locked.Enter(PassWord); //Enter the Password State and pass the Correct Password to it.
      
-		FSM_int();
-		CurrentState = Locked;
-		
-
-    myStates.Locked.Enter(PassWord);
-     
-    while (1) loop[CurrentState]();
+    while (1)
+    {
+	    loop[CurrentState](); 	//Enter the Loop Function of the Current State.
+    } 
 
 
 }
