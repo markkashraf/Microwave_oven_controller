@@ -23,6 +23,7 @@ void Idle_Loop()
 	if(x == 'A')myStates.Popcorn.Enter();
 	else if(x == 'B' || x == 'C')myStates.BeefChicken.Enter(x);
 	else if (x == 'D')myStates.FreeTimer.Enter();
+	else if(x == 'z')myStates.Locked.Enter(myStates.Locked.PassWord);
 	else
 	{	
 		LCD4bits_Cmd(0x01);
