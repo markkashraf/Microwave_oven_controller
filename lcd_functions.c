@@ -22,11 +22,11 @@ void LCD_Write4bits(unsigned char data, unsigned char control) //control is RS v
 {
 	data &= 0xF0;                       		   	//clear lower 4-bits for control 
 	control &= 0x0F;                    				//clear upper 4-bits for data
-	GPIO_PORTB_DATA_R = data | control;         //Include RS value (command or data ) with data 
-	GPIO_PORTB_DATA_R  = data | control | EN;   //pulse EN
-	delay_micro(0);													    //delay for pulsing EN
-	GPIO_PORTB_DATA_R  = data | control;				//Turn off the pulse EN
-	GPIO_PORTB_DATA_R  = 0;                     //Clear the Data 
+	GPIO_PORTB_DATA_R = data | control;        //Include RS value (command or data ) with data 
+	GPIO_PORTB_DATA_R  = data | control | EN;  //pulse EN
+	delay_micro(0);				   //delay for pulsing EN
+	GPIO_PORTB_DATA_R  = data | control;	   //Turn off the pulse EN
+	GPIO_PORTB_DATA_R  = 0;                    //Clear the Data 
 }
 
 void LCD4bits_Data(unsigned char data)
@@ -70,7 +70,7 @@ void LCD_WriteString(char* str)
 	}
 }
 
-void Cursor_Left(int n)
+void Cursor_Left(int n)// Shift Cursor Position Left by n Chars
 {
 	int CurrentPosition;
 
@@ -80,7 +80,7 @@ void Cursor_Left(int n)
 	}
 }
 
-void Cursor_Right(int n)
+void Cursor_Right(int n) // Shift Cursor Position Right by n Chars
 {
 	int CurrentPosition;
 
