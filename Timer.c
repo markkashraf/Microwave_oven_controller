@@ -5,7 +5,7 @@
 #include "delays.h"
 #include "ports_init.h"
 
-int flag = 0;
+int flag = 0; // Set a Global Flag
 
 
 void Timer_Enter(int minutes ,int seconds) // Enter Timer State
@@ -71,11 +71,10 @@ if(flag == 1 || flag == 3) // if pause is pressed or the door is open.
 }
 LCD4bits_Cmd(0x01); //Clear Screen
 
-
 }
 
 
-void Timer_Output()
+void Timer_Output() //Display Current Time
 {
     LCD4bits_Data((myStates.Timer.minutes/10)+'0');// Send second digit in minutes
     LCD4bits_Data((myStates.Timer.minutes%10)+'0'); // Send first digit in minutes
@@ -87,7 +86,7 @@ void Timer_Output()
 
 
 
-void Timer_Init()
+void Timer_Init() // Initialize the State (Set Function Pointers, Change Current State, etc)
 {
      myStates.Timer.Enter  = Timer_Enter;
      myStates.Timer.Loop   = Timer_Loop;
