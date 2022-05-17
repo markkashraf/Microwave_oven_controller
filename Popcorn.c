@@ -16,7 +16,7 @@ void Popcorn_Loop()
 
 void Popcorn_Output()
 {
-     LCD4bits_Cmd(lcd_clear);      //LCD clears
+     LCD4bits_Cmd(0x01);      //LCD clears
      LCD_WriteString("Popcorn ");
 }
 
