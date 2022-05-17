@@ -1,3 +1,6 @@
+// this was an initial implementation and was modified in Freetimer.c
+
+
 void Enter_time(void){
 		char x,y,z,c;
 	LCD_WriteString("00:00");
