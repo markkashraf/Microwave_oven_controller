@@ -1,8 +1,11 @@
 #include "FSMmanager.h"
 #include "Idle.h"
 #include "Popcorn.h"
+#include "BeefChicken.h"
+#include "FreeTimer.h"
 #include <stdlib.h>
-#define NOfStates 6
+#define NOfStates 7
+
 
 
 f_pointer_void_void* loop;
@@ -18,8 +21,8 @@ void FSM_int()
     BeefChicken_Init();
     FreeTimer_Init();
     Pause_Init();
-    Popcorn_Init();
-  
+		Timer_Init();
+    Locked_Init();
 };
 
 StatesEnum CurrentState;

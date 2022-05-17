@@ -1,8 +1,12 @@
+//this file includes buzzer functions, switches input functions and ports initialization functions
+
+
 //RS and EN are connected to PB0 and PB2 respectively
 //data4-7 of lcd are connected to PB4-7
 //rows (input) are connected to PE0-3
 //columns (output) are connected to PC4-7
 //PA2-4 are initialized to be used later with buzzer and push button
+
 
 #include "tm4c123gh6pm.h"
 #include "Ports_init.h"
@@ -47,7 +51,7 @@ void PortA_init(void){
 	GPIO_PORTA_PCTL_R &= ~0x0000FF00;
 	GPIO_PORTA_AFSEL_R &= ~0x0C;
 	GPIO_PORTA_DIR_R |= 0x04;
-	GPIO_PORTA_DIR_R &= ~0x04;
+	GPIO_PORTA_DIR_R &= ~0x08;
 	GPIO_PORTA_DEN_R |= 0x0C;
 	GPIO_PORTA_PUR_R |= 0x08
 	GPIO_PORTA_DATA_R &= ~0x0C;	
