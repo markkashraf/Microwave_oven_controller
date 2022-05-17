@@ -53,7 +53,7 @@ void PortA_init(void){
 	GPIO_PORTA_DIR_R |= 0x04;
 	GPIO_PORTA_DIR_R &= ~0x08;
 	GPIO_PORTA_DEN_R |= 0x0C;
-	GPIO_PORTA_PUR_R |= 0x08
+	GPIO_PORTA_PUR_R |= 0x08;
 	GPIO_PORTA_DATA_R &= ~0x0C;	
 }
 
