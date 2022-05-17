@@ -3,7 +3,7 @@
 This project simulates a program that runs in a Microcontroller of a Microwave. 
 The Project was made for Course CSE211s (Introduction to Embedded Systems), Faculty of Engineering, ASU.
 
-Contribution summary:
+main contribution summary:
 
 ------------------------------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ Hossam El-Din Adel : keypad.c , popcorn.c , Beefchicken.c
 
 ------------------------------------------------------------------------------------------------------
 
-Mohamed Saeed : FSMmanager.c , locked.c , pause.c
+Mohamed Saeed ibrahim : FSMmanager.c , locked.c , pause.c
 
 ------------------------------------------------------------------------------------------------------
 
