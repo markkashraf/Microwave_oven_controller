@@ -72,7 +72,7 @@ void BeefChicken_Output()
 		
 }
 
-void BeefChicken_Init()
+void BeefChicken_SetUp()
 {
      myStates.BeefChicken.Enter  = BeefChicken_Enter;
      myStates.BeefChicken.Loop   = BeefChicken_Loop;

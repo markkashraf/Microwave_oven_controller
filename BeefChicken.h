@@ -3,5 +3,5 @@
 void BeefChicken_Enter(int parameter);
 void BeefChicken_Loop();
 void BeefChicken_Output();
-void BeefChicken_Init();
+void BeefChicken_SetUp();
 #endif

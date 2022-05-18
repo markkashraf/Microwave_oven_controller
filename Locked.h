@@ -3,5 +3,5 @@
 void Locked_Enter(int* arry);
 void Locked_Loop(void);
 void Locked_Output(void);
-void Locked_Init(void);
+void Locked_SetUp(void);
 #endif

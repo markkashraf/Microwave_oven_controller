@@ -3,5 +3,5 @@
 void Popcorn_Enter();
 void Popcorn_Loop();
 void Popcorn_Output();
-void Popcorn_Init();
+void Popcorn_SetUp();
 #endif

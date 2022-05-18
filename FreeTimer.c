@@ -133,7 +133,7 @@ void FreeTimer_Output()
 			LCD4bits_Cmd(0x0C);
 }
 
-void FreeTimer_Init()
+void FreeTimer_SetUp()
 {
      myStates.FreeTimer.Enter  = FreeTimer_Enter;
      myStates.FreeTimer.Loop   = FreeTimer_Loop;

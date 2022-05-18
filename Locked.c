@@ -77,7 +77,7 @@ void Locked_Output()
     	LCD_WriteString("Password:  ");
 }
 
-void Locked_Init()
+void Locked_SetUp()
 {
      myStates.Locked.Enter  = Locked_Enter;
      myStates.Locked.Loop   = Locked_Loop;

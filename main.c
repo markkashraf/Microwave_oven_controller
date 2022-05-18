@@ -15,7 +15,7 @@ int main()
 	
 	LCD4bits_Cmd(0x0C); 		//display on , cursor off
 		    
-	FSM_int(); 			// Inittialize the States
+	FSM_SetUp(); 			// Setting up the States
 	
 	CurrentState = Locked; 		// Set the First State to be the Locked State
 		

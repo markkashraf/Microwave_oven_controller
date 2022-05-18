@@ -86,7 +86,7 @@ void Timer_Output() //Display Current Time
 
 
 
-void Timer_Init() // Initialize the State (Set Function Pointers, Change Current State, etc)
+void Timer_SetUp() // Initialize the State (Set Function Pointers, Change Current State, etc)
 {
      myStates.Timer.Enter  = Timer_Enter;
      myStates.Timer.Loop   = Timer_Loop;

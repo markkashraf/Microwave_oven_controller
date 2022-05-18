@@ -3,5 +3,5 @@
 void Idle_Enter();
 void Idle_Loop();
 void Idle_Output();
-void Idle_Init();
+void Idle_SetUp();
 #endif

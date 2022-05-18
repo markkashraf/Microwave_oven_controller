@@ -3,5 +3,5 @@
 void Pause_Enter(int parameter1, int parameter2);
 void Pause_Loop();
 void Pause_Output();
-void Pause_Init();
+void Pause_SetUp();
 #endif

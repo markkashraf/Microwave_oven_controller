@@ -13,16 +13,18 @@ f_pointer_void_void* loop;
 
 States myStates;
 
-void FSM_int()
+void FSM_SetUp()
 {
     loop = (f_pointer_void_void*)calloc(NOfStates, sizeof(f_pointer_void_void));
-    Idle_Init();
-    Popcorn_Init();
-    BeefChicken_Init();
-    FreeTimer_Init();
-    Pause_Init();
-		Timer_Init();
-    Locked_Init();
+    /*we cannot free the memory we allocated for the array as we are using it throughout
+    the whole program which is running consciously as we are jumping from a state to another one*/
+    Idle_SetUp();
+    Popcorn_SetUp();
+    BeefChicken_SetUp();
+    FreeTimer_SetUp();
+    Pause_SetUp();
+		Timer_SetUp();
+    Locked_SetUp();
 };
 
 StatesEnum CurrentState;

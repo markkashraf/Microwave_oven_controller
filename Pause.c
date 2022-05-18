@@ -44,7 +44,7 @@ void Pause_Output()
     LCD4bits_Data((myStates.Pause.seconds%10)+'0'); // Send first digit in seconds
 }
 
-void Pause_Init()
+void Pause_SetUp()
 {
      myStates.Pause.Enter  = Pause_Enter;
      myStates.Pause.Loop   = Pause_Loop;

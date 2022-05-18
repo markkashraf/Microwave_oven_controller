@@ -20,7 +20,7 @@ void Popcorn_Output()
      LCD_WriteString("Popcorn ");
 }
 
-void Popcorn_Init()
+void Popcorn_SetUp()
 {
      myStates.Popcorn.Enter  = Popcorn_Enter;
      myStates.Popcorn.Loop   = Popcorn_Loop;

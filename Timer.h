@@ -5,7 +5,7 @@
 void Timer_Enter(int minutes ,int seconds);
 void Timer_Loop();
 void Timer_Output();
-void Timer_Init();
+void Timer_SetUp();
 #endif
 
 

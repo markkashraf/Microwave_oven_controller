@@ -41,7 +41,7 @@ void Idle_Output()
 		systick_delay_msec(500);
 }
 
-void Idle_Init()
+void Idle_SetUp()
 {
      myStates.Idle.Enter  = Idle_Enter;
      myStates.Idle.Loop   = Idle_Loop;
