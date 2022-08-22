@@ -30,7 +30,7 @@ typedef struct StateIntArryParameter
     f_pointer_void_int_Star Enter;
     f_pointer_void_void Loop;
     f_pointer_void_void Output;
-    int PassWord;
+    int* PassWord;
 } StateIntArryParameter;
 
 
