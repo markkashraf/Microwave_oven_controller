@@ -1,30 +1,57 @@
-#Microwave_Oven_Project
+# Microwave Controller Project - Tiva C TM4C123
 
-This project simulates a program that runs in a Microcontroller of a Microwave. 
-The Project was made for Course CSE211s (Introduction to Embedded Systems), Faculty of Engineering, ASU.
+## Overview
 
-main contribution summary:
+This Microwave Controller project is designed for the Tiva C TM4C123 microcontroller and includes advanced features for controlling a microwave oven. The project incorporates a timer, multiple cooking modes for various types of food, and a security lock with a password. The user interacts with the microwave through an LCD display and a keypad.
 
-------------------------------------------------------------------------------------------------------
+## Features
 
-Marco Sherif : delays.c, locked.c, ports_init.c (Buzzer and SW3 Functions) and pause.c (Door open case).
+1. **Timer Functionality:**
+   - The microwave supports timer functionality, allowing users to set the cooking time for their food.
 
-------------------------------------------------------------------------------------------------------
+2. **Multiple Cooking Modes:**
+   - The controller includes different cooking modes tailored for various types of food. Users can easily select the appropriate mode for their dish.
 
-Mohamed Ahmed Samir : ports_init.c (ports initializations), idle.c and Freetimer.c.
+3. **Security Lock with Password:**
+   - A security lock feature prevents unauthorized use of the microwave. Users must enter a password on the keypad to unlock and operate the microwave.
 
-------------------------------------------------------------------------------------------------------
+4. **LCD Display:**
+   - The LCD display provides a user-friendly interface to view and interact with the microwave settings, timer, and cooking modes.
 
-Mark Ashraf : lcd_functions.c , Timer.c , main.c
+5. **Keypad Input:**
+   - Users can input commands and set parameters using the keypad. The keypad facilitates easy navigation and customization of cooking settings.
 
-------------------------------------------------------------------------------------------------------
+## Hardware Requirements
 
-Hossam El-Din Adel : keypad.c , popcorn.c , Beefchicken.c
+- Tiva C TM4C123 microcontroller.
+- LCD display compatible with the Tiva C TM4C123.
+- Keypad compatible with the Tiva C TM4C123.
 
-------------------------------------------------------------------------------------------------------
+## Setup and Usage
 
-Mohamed Saeed ibrahim : FSMmanager.c , locked.c , pause.c
+1. **Hardware Connection:**
+   - Connect the Tiva C TM4C123 to the LCD display and keypad following the hardware documentation.
 
-------------------------------------------------------------------------------------------------------
+2. **Compile and Flash:**
+   - Use a suitable IDE (e.g., Keil) to compile the project and flash the firmware onto the Tiva C TM4C123.
 
-Each member contributed in a .C file made its corresponding Header file.
+3. **Power On:**
+   - Power on the microwave controller.
+
+4. **User Interaction:**
+   - Follow the on-screen instructions on the LCD display.
+   - Use the keypad to set the timer, select cooking modes, and input the security lock password.
+
+## Example Usage
+
+1. **Setting Timer:**
+   - Press the appropriate keys on the keypad to set the desired cooking time.
+   - Start the timer by pressing the "Start" button.
+
+2. **Selecting Cooking Mode:**
+   - Choose the type of food by navigating through the available cooking modes on the keypad.
+
+3. **Children Lock:**
+   - To lock the microwave, input the security password and press the "Lock" button.
+
+
